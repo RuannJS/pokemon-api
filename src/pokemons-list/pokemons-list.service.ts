@@ -6,6 +6,59 @@ import { PokemonResponse } from './pokemonresponse.interface';
 export class PokemonsListService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async getAllPokemons(
+    limit: number,
+    skip: number,
+  ): Promise<PokemonResponse[]> {
+    var pokemons!: PokemonResponse[];
+
+    if (isNaN(limit) && isNaN(skip)) {
+      pokemons = await this.prisma.pokemon.findMany({
+        select: {
+          id: true,
+          name: true,
+          generation: true,
+          type1: true,
+          type2: true,
+          weather1: true,
+          weather2: true,
+          evolutionStage: true,
+        },
+      });
+    } else if (isNaN(limit) && !isNaN(skip)) {
+      pokemons = await this.prisma.pokemon.findMany({
+        skip: skip,
+        select: {
+          id: true,
+          name: true,
+          generation: true,
+          type1: true,
+          type2: true,
+          weather1: true,
+          weather2: true,
+          evolutionStage: true,
+        },
+      });
+    } else {
+      pokemons = await this.prisma.pokemon.findMany({
+        take: limit,
+        skip: skip,
+        select: {
+          id: true,
+          name: true,
+          generation: true,
+          type1: true,
+          type2: true,
+          weather1: true,
+          weather2: true,
+          evolutionStage: true,
+        },
+      });
+    }
+
+    return pokemons;
+  }
+
   async getPokemonsByGeneration(
     generation: number,
   ): Promise<PokemonResponse[]> {

@@ -6,6 +6,21 @@ _This NodeJS API has been developed with the goal of importing and providing acc
 
 ## Pokemons Endpoints
 
+### Get All Pokemons
+
+Endpoint: `/pokemons`
+
+**Method:** `GET`
+
+**Query Parameters:**
+
+- `limit` (string): Limit the number of Pokemons returned.
+- `skip` (string): Skip the specified number of Pokemons in the list.
+
+**Response:**
+
+- Returns a list of all Pokemons based on the specified limit and skip parameters.
+
 ### Get Pokemons by Generation
 
 Endpoint: `/pokemons/generation/:generation`

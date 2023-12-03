@@ -1,10 +1,18 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { PokemonsListService } from './pokemons-list.service';
 import { PokemonResponse } from './pokemonresponse.interface';
 
 @Controller('pokemons')
 export class PokemonsListController {
   constructor(private readonly pokemons: PokemonsListService) {}
+
+  @Get()
+  async getAllPokemons(
+    @Query('limit') limit: string,
+    @Query('skip') skip: string,
+  ): Promise<PokemonResponse[]> {
+    return await this.pokemons.getAllPokemons(Number(limit), Number(skip));
+  }
 
   // Get pokemons by generation
   @Get('/generation/:generation')
