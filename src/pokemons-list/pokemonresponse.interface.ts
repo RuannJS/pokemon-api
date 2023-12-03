@@ -1,4 +1,4 @@
-export interface PokemonResponse {
+export class PokemonResponse {
   id: string;
   name: string;
   generation: number;
