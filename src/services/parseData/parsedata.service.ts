@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Pokemon } from 'src/entity/pokemon.entity';
+import { Pokemon } from '../../entity/pokemon.entity';
 //@ts-ignore
-import { parsedPokedex } from 'src/dataParse/data';
+import { parsedPokedex } from '../../dataParse/data';
 
 @Injectable()
 export class DataService {

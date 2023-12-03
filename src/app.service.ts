@@ -39,17 +39,18 @@ export class AppService {
     return validatedPokemons;
   }
 
-  async seedDatabase() {
+  async seedDatabase(): Promise<string> {
     const seed = this.validatePokemons();
     const seeded = this.prismaService.pokemon.createMany({
       data: seed.map((pokemon) => {
         return pokemon;
       }),
     });
-    return seeded;
-  }
 
-  async listAllPokemons() {
-    return this.prismaService.pokemon.findMany();
+    if (!seeded) {
+      throw new ConflictException('There was an error, please try again!');
+    }
+
+    return 'Database was successfully seeded!';
   }
 }
