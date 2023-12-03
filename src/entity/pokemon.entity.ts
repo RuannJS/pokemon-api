@@ -52,15 +52,10 @@ export class Pokemon {
     this.futureEvolve = data.futureEvolve;
     this.cpAt39 = data.cpAt39;
     this.cpAt40 = data.cpAt40;
-
     this.familyID = data.familyID;
-
     this.type2 = data.type2;
-
     this.weather2 = data.weather2;
-
     this.evolutionStage = data.evolutionStage;
-
     this.imgName = data.imgName;
   }
 }

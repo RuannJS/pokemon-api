@@ -11,10 +11,30 @@ export class AppService {
   ) {}
 
   validatePokemons(): Pokemon[] {
+    const validationError = (pokemon: Pokemon) => {
+      throw new ConflictException(
+        `Error validating Pokemon - ${pokemon.pokedexNumber}`,
+      );
+    };
+
     const seed = this.parseService.parsePokemons();
 
     const validatedPokemons = seed.map((pokemon) => {
       pokemon.imgName = pokemon.imgName.toString();
+
+      if (pokemon.name === undefined) {
+        validationError(pokemon);
+      }
+
+      if (pokemon.pokedexNumber === undefined) {
+        throw new ConflictException(
+          'Invalid pokedex number, please provide one.',
+        );
+      }
+
+      if (pokemon.generation === undefined) {
+        validationError(pokemon);
+      }
 
       if (pokemon.familyID === undefined) {
         pokemon.familyID = 0;
