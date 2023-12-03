@@ -58,6 +58,13 @@ describe('PokemonsListService', () => {
     prisma = module.get<PrismaService>(PrismaService);
   });
 
+  describe('getAllPokemons', () => {
+    it('should return pokemons array', async () => {
+      const pokemons = await service.getAllPokemons(2, 5);
+      expect(pokemons).toEqual(mockPokemons);
+    });
+  });
+
   describe('getPokemonsByGeneration', () => {
     it('should return pokemons array', async () => {
       const pokemons = await service.getPokemonsByGeneration(2);

@@ -64,6 +64,14 @@ describe('PokemonsListController', () => {
     service = module.get<PokemonsListService>(PokemonsListService);
   });
 
+  describe('getAllPokemons', () => {
+    it('should return an array of pokemons', async () => {
+      const pokemons = await controller.getAllPokemons('2', '5');
+
+      expect(pokemons).toEqual(mockPokemons);
+    });
+  });
+
   describe('getPokemonByGenaration', () => {
     it('should return an array of pokemons', async () => {
       const pokemons = await controller.getPokemonsByGeneration('2');
