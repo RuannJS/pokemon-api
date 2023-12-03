@@ -2,6 +2,14 @@
 
 _This NodeJS API has been developed with the goal of importing and providing access to Pokemon Go data stored in an Excel file. It follows RESTful practices to deliver a practical, fast, and automated experience for users._
 
+# Technologies Used
+
+**- Nest**
+**- Prisma**
+**- Jest**
+**- XLSX**
+**- MongoDB Atlas**
+
 # Pokemon Go API Documentation
 
 ## Pokemons Endpoints
@@ -128,3 +136,81 @@ Endpoint: `/pokemons/legendary`
 ---
 
 Feel free to use these endpoints to interact with the Pokemon Go API and retrieve relevant Pokemon data.
+
+### Get Pokemons by Total Stats
+
+Endpoint: `/pokemons/stats/:order`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `order` (string): Order of sorting, either 'desc' or 'asc'.
+- `min` (string): Minimum total stats value (optional).
+- `max` (string): Maximum total stats value (optional).
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified total stats order, with optional filtering by minimum and maximum values.
+
+### Get Pokemons by Attack (ATK)
+
+Endpoint: `/pokemons/atk/:order`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `order` (string): Order of sorting, either 'desc' or 'asc'.
+- `min` (string): Minimum ATK value (optional).
+- `max` (string): Maximum ATK value (optional).
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified ATK order, with optional filtering by minimum and maximum values.
+
+### Get Pokemons by Defense (DEF)
+
+Endpoint: `/pokemons/def/:order`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `order` (string): Order of sorting, either 'desc' or 'asc'.
+- `min` (string): Minimum DEF value (optional).
+- `max` (string): Maximum DEF value (optional).
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified DEF order, with optional filtering by minimum and maximum values.
+
+### Get Pokemons by Stamina (STA)
+
+Endpoint: `/pokemons/sta/:order`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `order` (string): Order of sorting, either 'desc' or 'asc'.
+- `min` (string): Minimum STA value (optional).
+- `max` (string): Maximum STA value (optional).
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified STA order, with optional filtering by minimum and maximum values.
+
+### Get Pokemon by Name
+
+Endpoint: `/pokemons/name/:name`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `name` (string): The name of the Pokemon.
+
+**Response:**
+
+- Returns information about a specific Pokemon based on its name.
