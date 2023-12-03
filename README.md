@@ -1,73 +1,115 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Pokemon Go Data API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+_This NodeJS API has been developed with the goal of importing and providing access to Pokemon Go data stored in an Excel file. It follows RESTful practices to deliver a practical, fast, and automated experience for users._
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Pokemon Go API Documentation
 
-## Description
+## Pokemons Endpoints
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Get Pokemons by Generation
 
-## Installation
+Endpoint: `/pokemons/generation/:generation`
 
-```bash
-$ npm install
-```
+**Method:** `GET`
 
-## Running the app
+**Parameters:**
 
-```bash
-# development
-$ npm run start
+- `generation` (string): The generation number of Pokemons.
 
-# watch mode
-$ npm run start:dev
+**Response:**
 
-# production mode
-$ npm run start:prod
-```
+- Returns a list of Pokemons belonging to the specified generation.
 
-## Test
+### Get Pokemons by Evolution Stage
 
-```bash
-# unit tests
-$ npm run test
+Endpoint: `/pokemons/evolution/:stage`
 
-# e2e tests
-$ npm run test:e2e
+**Method:** `GET`
 
-# test coverage
-$ npm run test:cov
-```
+**Parameters:**
 
-## Support
+- `stage` (string): The evolution stage of Pokemons.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Response:**
 
-## Stay in touch
+- Returns a list of Pokemons belonging to the specified evolution stage.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Get Max Evolution Pokemons
 
-## License
+Endpoint: `/pokemons/evolved/:boolean`
 
-Nest is [MIT licensed](LICENSE).
+**Method:** `GET`
+
+**Parameters:**
+
+- `boolean` (string): Flag to filter evolved or non-evolved Pokemons.
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified evolution status.
+
+### Get Pokemons with the Same Family ID
+
+Endpoint: `/pokemons/family/:familyID`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `familyID` (string): The Family ID of Pokemons.
+
+**Response:**
+
+- Returns a list of Pokemons with the specified Family ID.
+
+### Get Pokemons with Crossed Gen Evolutions
+
+Endpoint: `/pokemons/crossgen`
+
+**Method:** `GET`
+
+**Response:**
+
+- Returns a list of Pokemons with crossed-generation evolutions.
+
+### Get Pokemons by Type (1 or 2)
+
+Endpoint: `/pokemons/types/:type`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `type` (string): The type (1 or 2) of Pokemons.
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified type.
+
+### Get Pokemons by Main Type (Type 1)
+
+Endpoint: `/pokemons/maintype/:type`
+
+**Method:** `GET`
+
+**Parameters:**
+
+- `type` (string): The main type (Type 1) of Pokemons.
+
+**Response:**
+
+- Returns a list of Pokemons based on the specified main type.
+
+### Get Legendary Pokemons
+
+Endpoint: `/pokemons/legendary`
+
+**Method:** `GET`
+
+**Response:**
+
+- Returns a list of Legendary Pokemons.
+
+---
+
+Feel free to use these endpoints to interact with the Pokemon Go API and retrieve relevant Pokemon data.
