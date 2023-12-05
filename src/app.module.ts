@@ -5,9 +5,15 @@ import { DataService } from './services/parseData/parsedata.service';
 import { PrismaModule } from './services/prisma/prisma.module';
 import { PokemonsListModule } from './pokemons-list/pokemons-list.module';
 import { PokemonFilterModule } from './pokemon-filter/pokemon-filter.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [PrismaModule, PokemonsListModule, PokemonFilterModule],
+  imports: [
+    PrismaModule,
+    PokemonsListModule,
+    PokemonFilterModule,
+    ConfigModule.forRoot(),
+  ],
   controllers: [AppController],
   providers: [AppService, DataService],
 })
