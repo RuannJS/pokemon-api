@@ -2,6 +2,10 @@
 
 _This NodeJS API has been developed with the goal of importing and providing access to Pokemon Go data stored in an Excel file. It follows RESTful practices to deliver a practical, fast, and automated experience for users._
 
+# Docker
+
+Application Docker Image is available on: https://hub.docker.com/repository/docker/ruannjs/pokemongoapi/general
+
 # Technologies Used
 
 - [NestJS](https://nestjs.com/)
