@@ -4,11 +4,11 @@ _This NodeJS API has been developed with the goal of importing and providing acc
 
 # Technologies Used
 
-**- Nest**
-**- Prisma**
-**- Jest**
-**- XLSX**
-**- MongoDB Atlas**
+- [NestJS](https://nestjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prisma](https://www.prisma.io/)
+- [MongoDB](https://www.mongodb.com/)
+- [Jest](https://jestjs.io/)
 
 # Pokemon Go API Documentation
 
